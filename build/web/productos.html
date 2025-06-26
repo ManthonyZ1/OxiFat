@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos los productos</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo"><a href="index.html">OxiFat</a></div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="index.html#beneficios">Beneficios</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="login.jsp" class="btn view-all-btn">Iniciar Sesión</a></li>
+          
+
+        </ul>
+        <a href="carrito.html" target="_blank" class="cart-btn">🛒 <span id="cartCount">0</span></a>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <section style="padding: 100px 10%; text-align: center">
+      <h1 style="color: #2e7d32; font-size: 3rem">Todos los Productos</h1>
+      <p style="font-size: x-large">
+        Explora la gama completa de suplementos de OxiFat.
+      </p>
+
+      <div class="product-list">
+        <div class="product-item">
+          <img src="reducgra.jpeg" alt="Producto 1" />
+          <h3>OxiFat El Reductor de Grasas</h3>
+          <p>Fórmula clásica para empezar tu transformación corporal.</p>
+          <div class="price">$299 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat El Reductor de Grasas', 299)">Agregar al Carrito</a>
+
+        </div>
+
+        <div class="product-item">
+          <img src="bioforte.jpeg" alt="Producto 2" />
+          <h3>OxiFat Bio-Forte</h3>
+          <p>Potente fórmula con ingredientes premium.</p>
+          <div class="price">$299 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat Bio-Forte', 299)">Agregar al Carrito</a>
+
+        </div>
+
+        <div class="product-item">
+          <img src="reducgraes.jpeg" alt="Producto 3" />
+          <h3>OxiFat El Reductor de Grasas Especial</h3>
+          <p>
+            Con la ayuda de agentes reforzados, es mas eficiente que el normal.
+          </p>
+          <div class="price">$399 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat El Reductor de Grasas Especial', 399)">Agregar al Carrito</a>
+
+        </div>
+
+        <div class="product-item">
+          <img src="bioforespe.jpeg" alt="Producto 4" />
+          <h3>OxiFat Bio-Forte Especial</h3>
+          <p>
+            Con la ayuda de agentes reforzados, es mas eficiente que el normal.
+          </p>
+          <div class="price">$399 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat Bio-Forte Especial', 399)">Agregar al Carrito</a>
+
+        </div>
+
+        <div class="product-item">
+          <img src="reducgrasupe.jpeg" alt="Producto 5" />
+          <h3>OxiFat El Reductor de Grasas Super-Especial</h3>
+          <p>
+            Fórmula mejorada con ingredientes premium para una mayor eficacia y
+            resultados más rápidos.
+          </p>
+          <div class="price">$499 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat El Reductor de Grasas Super-Especial', 499)">Agregar al Carrito</a>
+
+        </div>
+
+        <div class="product-item">
+          <img src="biofrosupe.jpeg" alt="Producto 6" />
+          <h3>OxiFat Bio-Forte Super-Especial</h3>
+          <p>
+            Fórmula mejorada con ingredientes premium para una mayor eficacia y
+            resultados más rápidos.
+          </p>
+          <div class="price">$499 MXN</div>
+          <a href="#" class="btn" onclick="addToCart('OxiFat Bio-Forte Super-Especial', 499)">Agregar al Carrito</a>
+
+        <div id="cartSidebar" class="cart-sidebar">
+          <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button onclick="toggleCart()">×</button>
+          </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Productos agregados -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">Total: $<span id="cartTotal">0</span> MXN</div>
+            <button class="btn checkout-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+        </div>
+
+
+
+      </div>
+    </section>
+    <script src="jscp.js"></script>
+
+  </body>
+</html>

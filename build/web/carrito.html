@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu Carrito</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+      body {
+        background-color: #fff;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .cart-container {
+        padding: 100px 10%;
+      }
+
+      .cart-title {
+        font-size: 2.5rem;
+        color: #2e7d32;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .cart-item {
+        background: #f9f9f9;
+        padding: 20px;
+        margin: 15px auto;
+        border-radius: 12px;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        text-align: left;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .cart-total {
+        font-size: 1.5rem;
+        color: #444;
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .checkout-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 12px 30px;
+        background-color: #ff7043;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        max-width: 500px;
+      }
+
+      .checkout-btn:hover {
+        background-color: #ff5722;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo"><a href="web.html">OxiFat</a></div>
+      </div>
+    </nav>
+
+    <section class="cart-container">
+      <h2 class="cart-title">Tu Carrito</h2>
+      <div id="cartItems"></div>
+      <p class="cart-total">Total: $<span id="cartTotal">0</span> MXN</p>
+      <button class="checkout-btn" onclick="checkout()">
+        Finalizar Compra
+      </button>
+    </section>
+
+    <script>
+      const items = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const total = localStorage.getItem("cartTotal") || 0;
+
+      const cartItemsContainer = document.getElementById("cartItems");
+      const totalDisplay = document.getElementById("cartTotal");
+
+      items.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.textContent = `${item.name} - $${item.price}`;
+        cartItemsContainer.appendChild(div);
+      });
+
+      totalDisplay.textContent = total;
+
+      function checkout() {
+        alert("✅ Compra finalizada. ¡Gracias por tu compra!");
+        localStorage.clear();
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
