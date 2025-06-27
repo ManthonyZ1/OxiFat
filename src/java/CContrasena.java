@@ -16,7 +16,12 @@ public class CContrasena extends HttpServlet {
 
         if (dao.verificarUsuario(email, actual)) {
             if (dao.actualizarContraseña(email, nueva)) {
-                response.sendRedirect("login.html?mensaje=cambioOk");
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().println("<script>");
+                response.getWriter().println("alert('Contraseña actualizada correctamente');");
+                response.getWriter().println("window.location.href = 'login.html';");
+                response.getWriter().println("</script>");
+
             } else {
                 response.sendRedirect("cambiarContraseña.jsp?error=actualizacion");
             }

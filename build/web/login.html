@@ -1,104 +1,114 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Iniciar Sesión - OxiFat</title>
-  <link rel="stylesheet" href="estilitos.css" />
-  <style>
-    body {
-      background-color: #f0f0f0;
-      font-family: "Poppins", sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iniciar Sesión - OxiFat</title>
+    <link rel="stylesheet" href="estilitos.css" />
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: "Poppins", sans-serif;
+      }
 
-    .login-container {
-      max-width: 400px;
-      margin: 100px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+      .login-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-    .login-container h2 {
-      text-align: center;
-      color: #2e7d32;
-    }
+      .login-container h2 {
+        text-align: center;
+        color: #2e7d32;
+      }
 
-    .login-container form {
-      display: flex;
-      flex-direction: column;
-    }
+      .login-container form {
+        display: flex;
+        flex-direction: column;
+      }
 
-    .login-container input[type="email"],
-    .login-container input[type="password"],
-    .login-container select {
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
+      .login-container input[type="email"],
+      .login-container input[type="password"],
+      .login-container select {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
 
-    .login-container input[type="submit"] {
-      background-color: #f57c00;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
+      .login-container input[type="submit"] {
+        background-color: #f57c00;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
 
-    .login-container input[type="submit"]:hover {
-      background-color: #fbc02d;
-    }
+      .login-container input[type="submit"]:hover {
+        background-color: #fbc02d;
+      }
 
-    .login-container p {
-      text-align: center;
-      margin-top: 15px;
-    }
+      .login-container p {
+        text-align: center;
+        margin-top: 15px;
+      }
 
-    .forgot-password {
-      text-align: right;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
+      .forgot-password {
+        text-align: right;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
 
-    .forgot-password a {
-      color: #2e7d32;
-      text-decoration: none;
-    }
+      .forgot-password a {
+        color: #2e7d32;
+        text-decoration: none;
+      }
 
-    .forgot-password a:hover {
-      text-decoration: underline;
-    }
-  </style>
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+    </style>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("exito") === "1") {
-      alert("¡Registro exitoso! Bienvenido a OxiFat.");
-    }
-  </script>
-</head>
-<body>
-  <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    <form action="LoginServlet" method="post">
-      <input type="email" name="email" placeholder="Correo" required />
-      <input type="password" name="contraseña" placeholder="Contraseña" required />
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("exito") === "1") {
+        alert("¡Registro exitoso! Bienvenido a OxiFat.");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form action="LoginServlet" method="post">
+        <input type="email" name="email" placeholder="Correo" required />
+        <input
+          type="password"
+          name="contraseña"
+          placeholder="Contraseña"
+          required
+        />
 
-      <div class="forgot-password">
-        <a href="CContrasena.html">¿Olvidaste tu contraseña?</a>
-      </div>
+        <div class="forgot-password">
+          <a href="CContrasena.html">¿Olvidaste tu contraseña?</a>
+        </div>
 
-      <select name="rol" required>
-        <option value="">Selecciona tu tipo de usuario</option>
-        <option value="cliente">Cliente</option>
-        <option value="vendedor">Vendedor</option>
-      </select>
+        <select name="rol" required>
+          <option value="">Selecciona tu tipo de usuario</option>
+          <option value="cliente">Cliente</option>
+          <option value="vendedor">Vendedor</option>
+        </select>
 
-      <input type="submit" value="Iniciar Sesión" />
-    </form>
-    <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
-  </div>
-</body>
+        <input type="submit" value="Iniciar Sesión" />
+      </form>
+      <p style="text-align: center; margin-top: 10px">
+        <a href="eliminarCuenta.html" style="color: #2e7d32"
+          >¿Deseas eliminar tu cuenta?</a
+        >
+      </p>
+      <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </div>
+  </body>
 </html>

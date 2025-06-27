@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eliminar Cuenta - OxiFat</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .delete-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .delete-container h2 {
+        text-align: center;
+        color: #2e7d32;
+      }
+
+      .delete-container input[type="email"],
+      .delete-container input[type="password"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+
+      .delete-container input[type="submit"] {
+        background-color: #f57c00;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .delete-container input[type="submit"]:hover {
+        background-color: #fbc02d;
+      }
+
+      .delete-container p {
+        text-align: center;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="delete-container">
+      <h2>Eliminar Cuenta</h2>
+      <form action="EliminarUsuarioServlet" method="post">
+        <input type="email" name="email" placeholder="Correo" required />
+        <input
+          type="password"
+          name="contraseña"
+          placeholder="Contraseña"
+          required
+        />
+        <input type="submit" value="Eliminar Cuenta" />
+      </form>
+      <p><a href="login.html">Volver al inicio de sesión</a></p>
+    </div>
+  </body>
+</html>

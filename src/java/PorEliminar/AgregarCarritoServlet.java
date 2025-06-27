@@ -1,3 +1,5 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -19,10 +21,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author Mike
  */
+/*
 @WebServlet("/AgregarCarritoServlet")
 public class AgregarCarritoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -47,3 +51,4 @@ public class AgregarCarritoServlet extends HttpServlet {
         response.sendRedirect("carrito.html");
     }
 }
+*/

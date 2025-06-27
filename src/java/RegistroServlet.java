@@ -6,7 +6,7 @@ import java.io.IOException;
 @WebServlet("/RegistroServlet")
 public class RegistroServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
 
         String nombre = request.getParameter("nombre");
         String correo = request.getParameter("email");
@@ -15,9 +15,12 @@ public class RegistroServlet extends HttpServlet {
 
         Registro nuevo = new Registro(nombre, correo, password, rol);
         RegistroDAO dao = new RegistroDAO();
-        dao.insertar(nuevo);
-        
-        response.sendRedirect("login.html?exito=1");
+        boolean exito = dao.insertar(nuevo);
+
+        if (exito) {
+            response.sendRedirect("login.html?exito=1");
+        } else {
+            response.sendRedirect("registro.html?error=1");
+        }
     }
-    
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Registro - OxiFat</title>
-    <link rel="stylesheet" href="estilitos.css" />
+    <link rel="stylesheet" href="estilos.css" />
     <style>
       body {
         background-color: #f0f0f0;
@@ -64,12 +64,7 @@
       <form action="RegistroServlet" method="post">
         <input type="text" name="nombre" placeholder="Nombre" required />
         <input type="email" name="email" placeholder="Correo" required />
-        <input
-          type="password"
-          name="contraseña"
-          placeholder="Contraseña"
-          required
-        />
+        <input type="password" name="contrasena" placeholder="Contraseña" required/>
         <select name="rol" required>
           <option value="cliente">Cliente</option>
           <option value="vendedor">Vendedor</option>
@@ -79,4 +74,11 @@
       <p>¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a></p>
     </div>
   </body>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+            if (params.get("error") === "1") {
+                alert("Hubo un problema al registrarte. Intenta de nuevo.");
+            }
+    </script>
+
 </html>

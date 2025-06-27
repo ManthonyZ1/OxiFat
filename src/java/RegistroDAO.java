@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 public class RegistroDAO {
     private final String url = "jdbc:mysql://localhost:3306/oxifatt";
     private final String usuario = "root";
-    private final String clave = "n0m3l0"; // cambia esto
+    private final String clave = "n0m3l0"; // tu contraseña real
 
-    public void insertar(Registro r) {
+    public boolean insertar(Registro r) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, usuario, clave);
@@ -19,10 +19,12 @@ public class RegistroDAO {
             ps.setString(3, r.getPassword());
             ps.setString(4, r.getRol());
 
-            ps.executeUpdate();
+            int filas = ps.executeUpdate(); // ← comprueba si insertó algo
             con.close();
+            return filas > 0;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }
