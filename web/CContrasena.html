@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cambiar Contraseña</title>
+
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: "Poppins", sans-serif;
+      }
+      h2 {
+        text-align: center;
+        color: #2e7d32;
+      }
+      form {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      input[type="email"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        width: calc(100% - 22px);
+      }
+      input[type="submit"] {
+        background-color: #f57c00;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+      }
+      input[type="submit"]:hover {
+        background-color: #fbc02d;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="CambioContraseñaServlet" method="post">
+      <h2>Cambiar Contraseña</h2>
+      <input type="email" name="email" placeholder="Correo" required /><br />
+      <input
+        type="password"
+        name="contraseñaActual"
+        placeholder="Contraseña actual"
+        required
+      /><br />
+      <input
+        type="password"
+        name="nuevaContraseña"
+        placeholder="Nueva contraseña"
+        required
+      /><br />
+      <input type="submit" value="Actualizar" />
+    </form>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("mensaje") === "cambioOk") {
+        alert("¡Contraseña actualizada correctamente!");
+      } else if (params.get("error") === "credenciales") {
+        alert("Correo o contraseña actual incorrectos.");
+      } else if (params.get("error") === "actualizacion") {
+        alert("Error al actualizar la contraseña.");
+      }
+    </script>
+  </body>
+</html>

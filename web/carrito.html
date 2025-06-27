@@ -64,7 +64,7 @@
   <body>
     <nav class="navbar">
       <div class="navdiv">
-        <div class="logo"><a href="web.html">OxiFat</a></div>
+        <div class="logo"><a href="index.html">OxiFat</a></div>
       </div>
     </nav>
 
@@ -78,26 +78,48 @@
     </section>
 
     <script>
-      const items = JSON.parse(localStorage.getItem("cartItems")) || [];
-      const total = localStorage.getItem("cartTotal") || 0;
+  let items = JSON.parse(localStorage.getItem("cartItems")) || [];
+  let total = localStorage.getItem("cartTotal") || 0;
 
-      const cartItemsContainer = document.getElementById("cartItems");
-      const totalDisplay = document.getElementById("cartTotal");
+  const cartItemsContainer = document.getElementById("cartItems");
+  const totalDisplay = document.getElementById("cartTotal");
 
-      items.forEach((item) => {
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.textContent = `${item.name} - $${item.price}`;
-        cartItemsContainer.appendChild(div);
-      });
+  function actualizarCarrito() {
+    cartItemsContainer.innerHTML = "";
+    total = 0;
 
-      totalDisplay.textContent = total;
+    items.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.className = "cart-item";
 
-      function checkout() {
-        alert("✅ Compra finalizada. ¡Gracias por tu compra!");
-        localStorage.clear();
-        location.reload();
-      }
-    </script>
+      div.innerHTML = `
+        <span>${item.name} - $${item.price}</span>
+        <button onclick="eliminarProducto(${index})" style="background:red; color:white; border:none; padding:5px 10px; border-radius:8px; cursor:pointer;">Eliminar</button>
+      `;
+
+      total += parseFloat(item.price);
+      cartItemsContainer.appendChild(div);
+    });
+
+    totalDisplay.textContent = total.toFixed(2);
+    localStorage.setItem("cartItems", JSON.stringify(items));
+    localStorage.setItem("cartTotal", total.toFixed(2));
+  }
+
+  function eliminarProducto(index) {
+    items.splice(index, 1);
+    actualizarCarrito();
+  }
+
+  function checkout() {
+    alert("✅ Compra finalizada. ¡Gracias por tu compra!");
+    localStorage.clear();
+    location.reload();
+  }
+
+  // Inicializa
+  actualizarCarrito();
+</script>
+
   </body>
 </html>

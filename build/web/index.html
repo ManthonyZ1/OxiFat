@@ -218,9 +218,19 @@
 
     <script src="jscp.js"></script>
     <script>
-      const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-      const cartCount = document.getElementById("cartCount");
-      if (cartCount) cartCount.textContent = storedItems.length;
+        const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartCount = document.getElementById("cartCount");
+        if (cartCount) cartCount.textContent = storedItems.length;
+    
+        const params = new URLSearchParams(window.location.search);
+        const loginRol = params.get("login");
+
+        if (loginRol === "cliente") {
+            alert("¡Bienvenido a OxiFat, cliente!");
+        } else if (loginRol === "vendedor") {
+            alert("¡Bienvenido, vendedor! Aquí puedes gestionar tus productos.");
+        }
     </script>
+    
   </body>
 </html>

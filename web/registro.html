@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registro - OxiFat</title>
+    <link rel="stylesheet" href="estilitos.css" />
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .register-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .register-container h2 {
+        text-align: center;
+        color: #2e7d32;
+      }
+
+      .register-container form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .register-container input[type="text"],
+      .register-container input[type="email"],
+      .register-container input[type="password"],
+      .register-container select {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      .register-container input[type="submit"] {
+        background-color: #f57c00;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .register-container input[type="submit"]:hover {
+        background-color: #fbc02d;
+      }
+
+      .register-container p {
+        text-align: center;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register-container">
+      <h2>Regístrate</h2>
+      <form action="RegistroServlet" method="post">
+        <input type="text" name="nombre" placeholder="Nombre" required />
+        <input type="email" name="email" placeholder="Correo" required />
+        <input
+          type="password"
+          name="contraseña"
+          placeholder="Contraseña"
+          required
+        />
+        <select name="rol" required>
+          <option value="cliente">Cliente</option>
+          <option value="vendedor">Vendedor</option>
+        </select>
+        <input type="submit" value="Registrarse" />
+      </form>
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia Sesión</a></p>
+    </div>
+  </body>
+</html>
