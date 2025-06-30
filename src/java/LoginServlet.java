@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
 
         String email = request.getParameter("email");
         String contraseña = request.getParameter("contraseña");
-        String rolIngresado = request.getParameter("rol"); // Cliente o Vendedor
+        String rolIngresado = request.getParameter("rol");
 
         try {
             Connection conn = Conexion.conectar();
@@ -27,19 +27,27 @@ public class LoginServlet extends HttpServlet {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                // Inicio de sesión exitoso
+                // Datos del usuario
+                String nombre = rs.getString("nombre");
+                String rol = rs.getString("rol");
+
+                // Guardar en sesión backend
                 HttpSession session = request.getSession();
                 session.setAttribute("id_usuario", rs.getInt("id_usuario"));
-                session.setAttribute("nombre", rs.getString("nombre"));
-                session.setAttribute("rol", rs.getString("rol"));
+                session.setAttribute("nombre", nombre);
+                session.setAttribute("rol", rol);
 
-                if ("vendedor".equalsIgnoreCase(rs.getString("rol"))) {
-                    response.sendRedirect("index.html?login=vendedor");
+                // Respuesta HTML con JavaScript para sessionStorage y redirección
+                response.setContentType("text/html;charset=UTF-8");
+                response.getWriter().println("<script>");
+                response.getWriter().println("sessionStorage.setItem('nombreUsuario', '" + nombre + "');");
+                if ("vendedor".equalsIgnoreCase(rol)) {
+                    response.getWriter().println("window.location.href = 'index.html?login=vendedor';");
                 } else {
-                    response.sendRedirect("index.html?login=exito");
+                    response.getWriter().println("window.location.href = 'index.html?login=cliente';");
                 }
+                response.getWriter().println("</script>");
             } else {
-                // Usuario no encontrado o credenciales incorrectas
                 response.sendRedirect("login.html?error=1");
             }
 
@@ -49,6 +57,4 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("login.html?error=2");
         }
     }
-
-   
 }

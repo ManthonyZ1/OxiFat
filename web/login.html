@@ -73,11 +73,17 @@
     </style>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("exito") === "1") {
-        alert("¡Registro exitoso! Bienvenido a OxiFat.");
-      }
+        const params = new URLSearchParams(window.location.search);
+
+            if (params.get("exito") === "1") {
+                alert("¡Registro exitoso! Bienvenido a OxiFat.");
+            }
+
+            if (params.get("error") === "1") {
+                alert("Usuario no encontrado o credenciales incorrectas.");
+            }
     </script>
+
   </head>
   <body>
     <div class="login-container">

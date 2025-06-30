@@ -49,12 +49,6 @@
       <input type="email" name="email" placeholder="Correo" required /><br />
       <input
         type="password"
-        name="contraseñaActual"
-        placeholder="Contraseña actual"
-        required
-      /><br />
-      <input
-        type="password"
         name="nuevaContraseña"
         placeholder="Nueva contraseña"
         required
@@ -67,7 +61,7 @@
       if (params.get("mensaje") === "cambioOk") {
         alert("¡Contraseña actualizada correctamente!");
       } else if (params.get("error") === "credenciales") {
-        alert("Correo o contraseña actual incorrectos.");
+        alert("Correo no encontrado.");
       } else if (params.get("error") === "actualizacion") {
         alert("Error al actualizar la contraseña.");
       }

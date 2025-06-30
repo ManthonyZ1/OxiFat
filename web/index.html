@@ -1,209 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OxiFat - Suplemento Natural</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="estilos.css" />
-  </head>
-  <body>
-    <!-- Barra de Navegacion -->
-    <nav class="navbar">
-      <div class="navdiv">
-        <div class="logo"><a href="index.html">OxiFat</a></div>
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="productos.html" target="_blank">Productos</a>
-          </li>
-          <li>
-            <a href="#beneficios" onclick="scrollToSection('beneficios')"
-              >Beneficios</a
-            >
-          </li>
-          <li>
-            <a href="#contacto" onclick="scrollToSection('contacto')"
-              >Contacto</a
-            >
-          </li>
-          <li>
-            <a href="login.html" target="_blank" class="btn view-all-btn"
-              >Iniciar Sesión</a
-            >
-          </li>
-          <li>
-            <a href="carrito.html" target="_blank" class="cart-btn"
-              >🛒 <span id="cartCount">0</span></a
-            >
-          </li>
-        </ul>
-         <!--
-          <div class="menu-toggle" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span> 
-        </div> -->
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OxiFat - Suplemento Natural</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    #saludoUsuario {
+      color: white;
+      font-weight: bold;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de Navegación -->
+  <nav class="navbar">
+    <div class="navdiv">
+      <div class="logo"><a href="index.html">OxiFat</a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="productos.html" target="_blank">Productos</a></li>
+        <li><a href="#beneficios" onclick="scrollToSection('beneficios')">Beneficios</a></li>
+        <li><a href="#contacto" onclick="scrollToSection('contacto')">Contacto</a></li>
 
+        <li id="loginBtn"><a href="login.html" target="_blank" class="btn view-all-btn">Iniciar Sesión</a></li>
+        <li id="logoutBtn" style="display: none;"><a href="#" class="btn view-all-btn" onclick="cerrarSesion()">Cerrar Sesión</a></li>
 
-    <!-- Seccion Hero -->
-    <header class="hero">
-      <div class="hero-content">
-        <h1>OxiFat</h1>
-        <p>
-          El suplemento alimenticio natural que te ayuda a reducir la grasa
-          corporal y mejorar tu composición corporal de manera efectiva y
-          segura.
-        </p>
-        <a href="#productos" class="btn" onclick="scrollToSection('productos')"
-          >Ver Productos</a
-        >
-      </div>
-    </header>
+        <li><a href="carrito.html" target="_blank" class="cart-btn">🛒 <span id="cartCount">0</span></a></li>
+        <li id="saludoUsuario" style="display: none;">Bienvenido:</li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Seccion Acerca De -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <h2>¿Qué es OxiFat?</h2>
-        <p>
-          OxiFat es un suplemento alimenticio innovador diseñado específicamente
-          para ayudar a las personas a reducir la grasa corporal y mejorar su
-          composición corporal. Formulado con ingredientes naturales de la más
-          alta calidad, OxiFat apoya tu metabolismo natural y potencia la quema
-          de grasa de manera segura y efectiva.
-        </p>
-        <a href="#beneficios" class="btn" onclick="scrollToSection('beneficios')">Descubre sus Beneficios</a>
-      </div>
-      <div class="hero-image">
-        <img src="oxifatfondo.jpeg" alt="OxiFat producto" />
-      </div>
-    </section>
-
-    <!-- Seccion Productos -->
-    <section id="productos">
-      <h2>Nuestros Productos</h2>
-
-      <div class="product-list">
-        <div class="product-item">
-          <img src="reducgra.jpeg" alt="OxiFat Original" />
-          <h3>OxiFat El Reductor de Grasas</h3>
-          <p>
-            Nuestra fórmula clásica para la reducción efectiva de grasa
-            corporal. Ideal para principiantes.
-          </p>
-          <div class="price">$299 MXN</div>
-          <a href="#" class="btn" onclick="addToCart('OxiFat Original', 299)"
-            >Agregar al Carrito</a
-          >
-        </div>
-
-        <div class="product-item">
-          <img src="bioforte.jpeg" alt="OxiFat Avanzado" />
-          <h3>OxiFat Bio-Forte</h3>
-          <p>
-            Fórmula mejorada con ingredientes premium para una mayor eficacia y
-            resultados más rápidos.
-          </p>
-          <div class="price">$3299 MXN</div>
-          <a href="#" class="btn" onclick="addToCart('OxiFat Avanzado', 399)"
-            >Agregar al Carrito</a
-          >
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 40px"  class="view-all">
-        <a href="productos.html" target="_blank" class="btn view-all-btn" style="padding: 15px 40px">Ver Todos los Productos</a>
-      </div>
-    </section>
-
-    <!-- Seccion Beneficios -->
-    <section id="beneficios">
-      <h2>Beneficios de OxiFat</h2>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">🔥</div>
-          <h3>Quema Grasa</h3>
-          <p>
-            Acelera tu metabolismo natural para una quema de grasa más eficiente
-            durante todo el día.
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">💪</div>
-          <h3>Preserva Músculo</h3>
-          <p>
-            Mantiene tu masa muscular mientras reduces la grasa corporal para
-            una mejor composición.
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">⚡</div>
-          <h3>Aumenta Energía</h3>
-          <p>
-            Proporciona energía sostenida sin los efectos secundarios de otros
-            suplementos.
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon">🌿</div>
-          <h3>100% Natural</h3>
-          <p>
-            Formulado únicamente con ingredientes naturales, sin químicos
-            artificiales dañinos.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seccion Contacto -->
-    <section id="contacto">
-      <h2>Contáctanos</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>📞 Teléfono</h3>
-          <p>+52 229 123 4567</p>
-          <p>Lunes a Viernes: 9:00 - 18:00</p>
-        </div>
-        <div class="contact-info">
-          <h3>📧 Email</h3>
-          <p>info@oxifat.com</p>
-          <p>ventas@oxifat.com</p>
-        </div>
-        <div class="contact-info">
-          <h3>📍 Ubicación</h3>
-          <p>Veracruz, Veracruz</p>
-          <p>México</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pie de Pagina -->
-    <footer class="footer">
+  <!-- Sección Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>OxiFat</h1>
       <p>
-        &copy; 2025 OxiFat. Todos los derechos reservados. | Hecho con ❤️ para
-        tu salud
+        El suplemento alimenticio natural que te ayuda a reducir la grasa
+        corporal y mejorar tu composición corporal de manera efectiva y
+        segura.
       </p>
-    </footer>
+      <a href="#productos" class="btn" onclick="scrollToSection('productos')">Ver Productos</a>
+    </div>
+  </header>
 
-    <script src="jscp.js"></script>
-    <script>
-        const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        const cartCount = document.getElementById("cartCount");
-        if (cartCount) cartCount.textContent = storedItems.length;
-    
-        const params = new URLSearchParams(window.location.search);
-        const loginRol = params.get("login");
+  <!-- Sección Acerca De -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>¿Qué es OxiFat?</h2>
+      <p>
+        OxiFat es un suplemento alimenticio innovador diseñado específicamente
+        para ayudar a las personas a reducir la grasa corporal y mejorar su
+        composición corporal. Formulado con ingredientes naturales de la más
+        alta calidad, OxiFat apoya tu metabolismo natural y potencia la quema
+        de grasa de manera segura y efectiva.
+      </p>
+      <a href="#beneficios" class="btn" onclick="scrollToSection('beneficios')">Descubre sus Beneficios</a>
+    </div>
+    <div class="hero-image">
+      <img src="oxifatfondo.jpeg" alt="OxiFat producto" />
+    </div>
+  </section>
 
-        if (loginRol === "cliente") {
-            alert("¡Bienvenido a OxiFat, cliente!");
-        } else if (loginRol === "vendedor") {
-            alert("¡Bienvenido, vendedor! Aquí puedes gestionar tus productos.");
-        }
-    </script>
-    
-  </body>
+  <!-- Sección Productos -->
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="product-list">
+      <div class="product-item">
+        <img src="reducgra.jpeg" alt="OxiFat Original" />
+        <h3>OxiFat El Reductor de Grasas</h3>
+        <p>Nuestra fórmula clásica para la reducción efectiva de grasa corporal. Ideal para principiantes.</p>
+        <div class="price">$299 MXN</div>
+        <a href="#" class="btn" onclick="addToCart('OxiFat Original', 299)">Agregar al Carrito</a>
+      </div>
+
+      <div class="product-item">
+        <img src="bioforte.jpeg" alt="OxiFat Avanzado" />
+        <h3>OxiFat Bio-Forte</h3>
+        <p>Fórmula mejorada con ingredientes premium para una mayor eficacia y resultados más rápidos.</p>
+        <div class="price">$3299 MXN</div>
+        <a href="#" class="btn" onclick="addToCart('OxiFat Avanzado', 399)">Agregar al Carrito</a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px" class="view-all">
+      <a href="productos.html" target="_blank" class="btn view-all-btn" style="padding: 15px 40px">Ver Todos los Productos</a>
+    </div>
+  </section>
+
+  <!-- Sección Beneficios -->
+  <section id="beneficios">
+    <h2>Beneficios de OxiFat</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">🔥</div>
+        <h3>Quema Grasa</h3>
+        <p>Acelera tu metabolismo natural para una quema de grasa más eficiente durante todo el día.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💪</div>
+        <h3>Preserva Músculo</h3>
+        <p>Mantiene tu masa muscular mientras reduces la grasa corporal para una mejor composición.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚡</div>
+        <h3>Aumenta Energía</h3>
+        <p>Proporciona energía sostenida sin los efectos secundarios de otros suplementos.</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🌿</div>
+        <h3>100% Natural</h3>
+        <p>Formulado únicamente con ingredientes naturales, sin químicos artificiales dañinos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contacto -->
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <h3>📞 Teléfono</h3>
+        <p>+52 229 123 4567</p>
+        <p>Lunes a Viernes: 9:00 - 18:00</p>
+      </div>
+      <div class="contact-info">
+        <h3>📧 Email</h3>
+        <p>info@oxifat.com</p>
+        <p>ventas@oxifat.com</p>
+      </div>
+      <div class="contact-info">
+        <h3>📍 Ubicación</h3>
+        <p>Veracruz, Veracruz</p>
+        <p>México</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de Página -->
+  <footer class="footer">
+    <p>&copy; 2025 OxiFat. Todos los derechos reservados. | Hecho con ❤️ para tu salud</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="jscp.js"></script>
+  <script>
+    const storedItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartCount = document.getElementById("cartCount");
+    if (cartCount) cartCount.textContent = storedItems.length;
+
+    const params = new URLSearchParams(window.location.search);
+    const loginRol = params.get("login");
+    const nombreUsuario = sessionStorage.getItem("nombreUsuario");
+
+    if (nombreUsuario) {
+      const saludo = document.getElementById("saludoUsuario");
+      const loginBtn = document.getElementById("loginBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (saludo) {
+        saludo.textContent = "Bienvenido: " + nombreUsuario;
+        saludo.style.display = "inline-block";
+      }
+
+      if (loginBtn) loginBtn.style.display = "none";
+      if (logoutBtn) logoutBtn.style.display = "inline-block";
+
+      if (loginRol === "cliente") {
+        alert("¡Bienvenido a OxiFat, " + nombreUsuario + "!");
+      } else if (loginRol === "vendedor") {
+        alert("¡Bienvenido, vendedor " + nombreUsuario + "!");
+      }
+    }
+
+    function cerrarSesion() {
+      sessionStorage.clear();
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
 </html>

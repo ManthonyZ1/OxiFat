@@ -10,14 +10,16 @@ public class RegistroServlet extends HttpServlet {
 
         String nombre = request.getParameter("nombre");
         String correo = request.getParameter("email");
-        String password = request.getParameter("contraseña");
+        String password = request.getParameter("contrasena");
         String rol = request.getParameter("rol");
 
         Registro nuevo = new Registro(nombre, correo, password, rol);
         RegistroDAO dao = new RegistroDAO();
+
         boolean exito = dao.insertar(nuevo);
 
         if (exito) {
+            // Redirige sin mostrar alerta
             response.sendRedirect("login.html?exito=1");
         } else {
             response.sendRedirect("registro.html?error=1");

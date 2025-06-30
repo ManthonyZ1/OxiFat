@@ -32,4 +32,17 @@ public class UsuarioDAO {
             return false;
         }
     }
+
+    public boolean existeCorreo(String email) {
+        try (Connection conn = Conexion.conectar()) {
+            String sql = "SELECT 1 FROM usuarios WHERE email = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
