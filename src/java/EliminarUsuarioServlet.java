@@ -4,7 +4,7 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet("/EliminarUsuarioServlet") // ← ESTA ES LA LÍNEA CLAVE
+@WebServlet("/EliminarUsuarioServlet") 
 public class EliminarUsuarioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
